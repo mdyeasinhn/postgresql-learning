@@ -13,128 +13,18 @@ CREATE TABLE students (
 )
 
 -- inserting value in student table  and Ordering in PostgreSQL
-INSERT INTO
-    students (
-        first_name,
-        last_name,
-        age,
-        grade,
-        course,
-        email,
-        dob,
-        blood_group,
-        country
-    )
-VALUES (
-        'John',
-        'Doe',
-        20,
-        'A',
-        'Computer Science',
-        'johndoe@example.com',
-        '2004-05-15',
-        'O+',
-        'USA'
-    ),
-    (
-        'Emma',
-        'Smith',
-        22,
-        'B',
-        'Mathematics',
-        'emmasmith@example.com',
-        '2002-08-20',
-        'A-',
-        'UK'
-    ),
-    (
-        'Liam',
-        'Johnson',
-        21,
-        'A',
-        'Physics',
-        'liamjohnson@example.com',
-        '2003-12-10',
-        'B+',
-        'Canada'
-    ),
-    (
-        'Olivia',
-        'Brown',
-        23,
-        'C',
-        'Chemistry',
-        'oliviabrown@example.com',
-        '2001-06-25',
-        'AB-',
-        'Australia'
-    ),
-    (
-        'Noah',
-        'Davis',
-        19,
-        'B',
-        'Engineering',
-        'noahdavis@example.com',
-        '2005-03-30',
-        'O-',
-        'Germany'
-    ),
-    (
-        'Sophia',
-        'Wilson',
-        20,
-        'A',
-        'Biology',
-        'sophiawilson@example.com',
-        '2004-07-12',
-        'A+',
-        'France'
-    ),
-    (
-        'James',
-        'Miller',
-        22,
-        'B',
-        'Economics',
-        'jamesmiller@example.com',
-        '2002-11-05',
-        'B-',
-        'USA'
-    ),
-    (
-        'Mia',
-        'Anderson',
-        21,
-        'A',
-        'Literature',
-        'miaanderson@example.com',
-        '2003-09-18',
-        'AB+',
-        'UK'
-    ),
-    (
-        'William',
-        'Martinez',
-        23,
-        'C',
-        'History',
-        'williammartinez@example.com',
-        '2001-02-22',
-        'O+',
-        'Spain'
-    ),
-    (
-        'Charlotte',
-        'Taylor',
-        19,
-        'A',
-        'Psychology',
-        'charlottetaylor@example.com',
-        '2005-04-10',
-        'A-',
-        'Italy'
-    );
+INSERT INTO students (first_name, last_name, age, grade, course, email, dob, blood_group, country)
+VALUES 
+('John', 'Doe', 20, 'A', 'Computer Science', 'johndoe@example.com', '2004-05-15', 'O+', 'USA'),
+('Emma', 'Smith', 22, 'B', 'Mathematics', 'emmasmith@example.com', '2002-08-20', 'A-', 'UK'),
+('Liam', 'Johnson', 21, 'A', 'Physics', 'liamjohnson@example.com', '2003-12-10', 'B+', 'Canada'),
+('Olivia', 'Brown', 23, 'C', 'Chemistry', 'oliviabrown@example.com', '2001-06-25', 'AB-', 'Australia'),
+('Noah', 'Davis', 19, 'B', 'Engineering', 'noahdavis@example.com', '2005-03-30', 'O-', 'Germany'),
+('Sophia', 'Wilson', 20, 'A', 'Biology', 'sophiawilson@example.com', '2004-07-12', 'A+', 'France'),
+('James', 'Miller', 22, 'B', 'Economics', 'jamesmiller@example.com', '2002-11-05', 'B-', 'USA'),
+('Mia', 'Anderson', 21, 'A', 'Literature', 'miaanderson@example.com', '2003-09-18', 'AB+', 'UK'),
+('William', 'Martinez', 23, 'C', 'History', 'williammartinez@example.com', '2001-02-22', 'O+', 'Spain'),
+('Charlotte', 'Taylor', 19, 'A', 'Psychology', 'charlottetaylor@example.com', '2005-04-10', 'A-', 'Italy');
 
 -- select everything into students table
 
@@ -169,7 +59,8 @@ WHERE (
     and age = 20;
 
 
---  Logical Operators, and Comparison Operators
+-- Logical Operators, and Comparison Operators
+
 -- Select students older than 20
 SELECT * FROM students WHERE age > 20;
 
@@ -184,3 +75,32 @@ SELECT * FROM students WHERE age <= 20;
 
 -- Select students whose age is NOT 20
 SELECT * FROM students WHERE age != 20;
+
+
+-- Convert first_name to uppercase  
+SELECT UPPER(first_name), * FROM students;  
+
+-- Concatenate first_name and last_name  
+SELECT CONCAT(first_name, ' ', last_name) * FROM students;  
+
+-- Get the length of first_name  
+SELECT length(first_name) AS first_name_length FROM students; 
+
+-- Get the maximum length of first_name  
+SELECT MAX(LENGTH(first_name)) FROM students;  
+
+-- Get the average age of students  
+SELECT AVG(age) FROM students;  
+
+-- Get the maximum age of students  
+SELECT MAX(age) FROM students;  
+
+-- Get the minimum age of students  
+SELECT MIN(age) FROM students;  
+
+-- Get the total sum of all students' ages  
+SELECT SUM(age) FROM students;  
+
+-- Get the total number of students  
+SELECT COUNT(*) FROM students;  
+

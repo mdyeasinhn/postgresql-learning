@@ -1,4 +1,4 @@
--- creat a student table
+-- Create a student table
 CREATE TABLE students (
     student_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
@@ -103,4 +103,30 @@ SELECT SUM(age) FROM students;
 
 -- Get the total number of students  
 SELECT COUNT(*) FROM students;  
+
+-- set null value
+SELECT COALESCE(email, 'Email not provided') as "Email", blood_group, first_name from students;
+
+
+SELECT * FROM students 
+    WHERE country = 'USA' OR country = 'Canada' OR country = 'UK'; 
+
+
+SELECT * FROM students WHERE country IN('USA',  'UK');
+
+SELECT * FROM students WHERE country NOT IN('USA',  'UK');
+
+SELECT * FROM students WHERE age BETWEEN 19 and 21;
+
+SELECT * from students
+    WHERE dob BETWEEN '2000-01-01' and '2005-01-01' ORDER BY dob;
+
+
+SELECT * from students 
+    WHERE first_name LIKE 'M%';
+
+SELECT * from students 
+    WHERE last_name ILIKE 'm%';
+
+
 

@@ -107,26 +107,33 @@ SELECT COUNT(*) FROM students;
 -- set null value
 SELECT COALESCE(email, 'Email not provided') as "Email", blood_group, first_name from students;
 
+-- Get students from USA, Canada, or UK  
+SELECT * FROM students WHERE country = 'USA' OR country = 'Canada' OR country = 'UK';  
 
-SELECT * FROM students 
-    WHERE country = 'USA' OR country = 'Canada' OR country = 'UK'; 
+-- Get students from USA or UK  
+SELECT * FROM students WHERE country IN ('USA', 'UK');  
 
+-- Get students not from USA or UK  
+SELECT * FROM students WHERE country NOT IN ('USA', 'UK');  
 
-SELECT * FROM students WHERE country IN('USA',  'UK');
+-- Get students aged between 19 and 21  
+SELECT * FROM students WHERE age BETWEEN 19 AND 21;  
 
-SELECT * FROM students WHERE country NOT IN('USA',  'UK');
+-- Get students born between 2000 and 2005, sorted by DOB  
+SELECT * FROM students WHERE dob BETWEEN '2000-01-01' AND '2005-01-01' ORDER BY dob;  
 
-SELECT * FROM students WHERE age BETWEEN 19 and 21;
+-- Get students whose first_name starts with 'M' (case-sensitive)  
+SELECT * FROM students WHERE first_name LIKE 'M%';  
 
-SELECT * from students
-    WHERE dob BETWEEN '2000-01-01' and '2005-01-01' ORDER BY dob;
+-- Get students whose last_name starts with 'M' (case-insensitive)  
+SELECT * FROM students WHERE last_name ILIKE 'm%';  
 
-
-SELECT * from students 
-    WHERE first_name LIKE 'M%';
-
-SELECT * from students 
-    WHERE last_name ILIKE 'm%';
+-- Pagination: Fetch 5 students per page using LIMIT and OFFSET  
+SELECT * FROM students LIMIT 5;  
+SELECT * FROM students LIMIT 5 OFFSET 5 * 0;  
+SELECT * FROM students LIMIT 5 OFFSET 5 * 1;  
+SELECT * FROM students LIMIT 5 OFFSET 5 * 2;  
+SELECT * FROM students LIMIT 5 OFFSET 5 * 3;  
 
 
 

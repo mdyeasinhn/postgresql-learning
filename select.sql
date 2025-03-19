@@ -136,4 +136,7 @@ SELECT * FROM students LIMIT 5 OFFSET 5 * 2;
 SELECT * FROM students LIMIT 5 OFFSET 5 * 3;  
 
 
+SELECT * from students WHERE country ='USA';
 
+DELETE FROM students 
+    WHERE grade = 'B' AND country = 'USA'

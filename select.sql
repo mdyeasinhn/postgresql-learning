@@ -140,3 +140,9 @@ SELECT * from students WHERE country ='USA';
 
 DELETE FROM students 
     WHERE grade = 'B' AND country = 'USA'
+
+SELECT * FROM students;
+
+UPDATE students 
+    set email = 'default@gmail.com', age = 22
+        WHERE student_id = 6

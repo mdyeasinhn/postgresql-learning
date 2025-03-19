@@ -56,3 +56,10 @@ SELECT * FROM course JOIN person ON course.user_id = person.id;
 SELECT c.title, p.username
 FROM course AS c
     JOIN person AS p ON c.user_id = p.id;
+SELECT * 
+FROM course AS c
+   LEFT JOIN person AS p ON c.user_id = p.id;  -- Keep all records from 'course', even if there's no match in 'person'
+
+SELECT * 
+FROM course AS c
+   RIGHT JOIN person AS p ON c.user_id = p.id; -- Keep all records from 'person', even if there's no match in 'course'

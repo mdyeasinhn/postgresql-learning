@@ -144,14 +144,14 @@ INSERT INTO orders (customer_id, order_date, total_amount) VALUES
 (1, '2024-03-07', 540.00), 
 
 (2, '2024-03-10', 310.25), 
-(2, '2024-03-12', 150.90), 
+(2, '2023-03-12', 150.90), 
 (2, '2024-03-15', 780.60), 
 (3, '2024-03-18', 450.30),
-(3, '2024-03-21', 600.00), 
+(3, '2022-02-21', 600.00), 
 
 (4, '2024-03-25', 999.99), 
 (5, '2024-03-28', 1200.45),
-(5, '2024-03-30', 500.00),
+(5, '2022-03-30', 500.00),
 (5, '2024-03-31', 400.00);
 
 DROP TABLE orders;
@@ -162,4 +162,7 @@ FROM orders
 GROUP BY
     customer_id
 HAVING
-    count(order_id) > 2
+    count(order_id) > 2;
+
+-- Find the total amount of oder placed each month in a specific year
+SELECT extract(month from order_date) as month, sum(total_amount) from orders WHERE extract(year from order_date) = 2022 GROUP BY month

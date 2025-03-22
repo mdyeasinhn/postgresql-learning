@@ -63,3 +63,6 @@ FROM course AS c
 SELECT * 
 FROM course AS c
    RIGHT JOIN person AS p ON c.user_id = p.id; -- Keep all records from 'person', even if there's no match in 'course'
+SELECT *  
+FROM course AS c  
+FULL OUTER JOIN person AS p ON c.user_id = p.id;  -- Full Joining courses with persons

@@ -62,3 +62,26 @@ SELECT department_name, round(avg(salary)) as avg_salary FROM employees
 -- Count employees  hired each year
 SELECT extract(YEAR from hire_date) as hire_year, count(*) FROM employees
     GROUP BY hire_year;
+
+
+CREATE Table orders (
+    order_id SERIAL PRIMARY KEY,
+    customer_id INT,
+    order_date DATE,
+    total_amount DECIMAL(10, 2)
+);
+
+-- Inserting data into the orders table without specifying order_id
+INSERT INTO orders (customer_id, order_date, total_amount) VALUES 
+(101, '2024-03-01', 250.50),
+(102, '2024-03-05', 120.75),
+(103, '2024-03-07', 540.00),
+(104, '2024-03-10', 310.25),
+(105, '2024-03-12', 150.90),
+(106, '2024-03-15', 780.60),
+(107, '2024-03-18', 450.30),
+(108, '2024-03-21', 600.00),
+(109, '2024-03-25', 999.99),
+(110, '2024-03-28', 1200.45);
+
+

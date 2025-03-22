@@ -22,5 +22,18 @@ INSERT INTO employees (emp_id, ema_name, dept_id) VALUES
 (101, 'Alice Johnson', 1),
 (102, 'Bob Smith', 2),
 (103, 'Charlie Brown', 3),
-(104, 'David White', 4),
-(105, 'Eva Green', NULL); -- Employee without a department
+(104, 'David White', 4)
+
+
+SELECT * FROM department
+
+-- CROSS JOIN
+SELECT * FROM employees
+    CROSS JOIN department;
+
+--NATURAL JOIN
+SELECT * FROM employees
+    NATURAL JOIN department;
+
+
+

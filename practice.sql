@@ -47,7 +47,16 @@ SELECT * FROM employees
 SELECT * FROM employees
     JOIN departments USING(department_id);
 
--- Get the average salary per department
+-- Get the average salary per department and Grouping by department to calculate the average salary
 SELECT department_name, round(avg(salary)) as avg_salary FROM employees
     JOIN departments USING(department_id)
-    GROUP BY department_name; -- Grouping by department to calculate the average salary
+    GROUP BY department_name; -- 
+
+-- Finding the department name with the highest AVG salary
+SELECT department_name, round(avg(salary)) as avg_salary FROM employees
+    JOIN departments USING(department_id)
+    GROUP BY department_name
+    ORDER BY avg_salary DESC
+    LIMIT 1; 
+
+

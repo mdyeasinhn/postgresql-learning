@@ -46,6 +46,18 @@ SELECT * FROM employees;
 
 SELECT max(salary) from employees WHERE department_name = 'HR';
 
-SELECT * FROM employees WHERE salary >(SELECT max(salary) from employees WHERE department_name = 'HR')
+SELECT * FROM employees WHERE salary >(SELECT max(salary) from employees WHERE department_name = 'HR');
 
 
+
+SELECT department_name, sum(salary) FROM employees GROUP BY department_name;
+
+
+SELECT * FROM -- outer query 
+    (SELECT department_name, sum(salary) FROM employees GROUP BY department_name) asf sum_dept_salary; --sub query 
+
+
+SELECT employee_name ,salary, department_name
+    FROM employees
+    WHERE department_name in 
+    (SELECT department_name FROM employees WHERE department_name like '%R%')

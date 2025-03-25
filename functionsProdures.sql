@@ -25,13 +25,15 @@ $$;
 -- Delete an employee with employee_id = 30
 SELECT delete_emp (30);
 
-CREATE Procedure remove_emp()
-LANGUAGE plpgsql
-AS
-$$
+CREATE PROCEDURE remove_emp_var() 
+LANGUAGE plpgsql 
+AS $$ 
+DECLARE 
+    test_var int;
 BEGIN
-DELETE FROM employees WHERE employee_id = 28;
-END
-$$
+    SELECT employee_id INTO test_var FROM employees WHERE employee_id = 27;
+    DELETE FROM employees WHERE employee_id = test_var;
+END $$;
 
-call remove_emp();
+call remove_emp_var ();
+
